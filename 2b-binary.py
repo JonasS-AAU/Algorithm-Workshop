@@ -61,7 +61,7 @@ else:
 #print(end)
 print(timetaken)
 
-
+'''
 timetaken1 = {}
 timetaken2 = {}
 size = 10
@@ -72,12 +72,12 @@ while size <=10000:
     v2 = 999999
     start = time.perf_counter_ns()
     Itbinarysearch(A,v1)
-    timetaken1.update({size: (time.perf_counter_ns()-start)*1000000})
+    timetaken1.update({size: (time.perf_counter_ns()-start)/1000000})
     start = time.perf_counter_ns()
     Itbinarysearch(A,v2)
-    timetaken2.update({size: (time.perf_counter_ns()-start)*1000000})
+    timetaken2.update({size: (time.perf_counter_ns()-start)/1000000})
     size += 10
-'''
+
 timetaken = {}
 size = 10
 while size <=1000:
@@ -91,7 +91,7 @@ while size <=1000:
         tmp += ((time.perf_counter_ns()-start)/1000000)
     timetaken.update({size: (tmp/size)})
     size += 10
-
+'''
 
 
 X = [i for i in range(100, 1000, 10)]
@@ -133,7 +133,7 @@ ax[1,0].set_xlabel("Array size n")
 ax[1,0].set_ylabel('Time [ms]')
 ax[1,1].set_xlabel("Array size n")
 ax[1,1].set_ylabel('Time [ms]')
-'''
+
 
 fig.show()
 input()

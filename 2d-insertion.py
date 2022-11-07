@@ -37,10 +37,10 @@ while size <=1000:
     A2 = A[::-1]
     start = time.perf_counter_ns()
     insertionSort(A2)
-    timetaken1.update({size: (time.perf_counter_ns()-start)*1000000})
+    timetaken1.update({size: (time.perf_counter_ns()-start)/1000000})
     start = time.perf_counter_ns()
     insertionSort(A1)
-    timetaken2.update({size: (time.perf_counter_ns()-start)*1000000})
+    timetaken2.update({size: (time.perf_counter_ns()-start)/1000000})
     size += 10
 
 X = [i for i in range(100, 1000, 10)]
