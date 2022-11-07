@@ -78,6 +78,8 @@ while size <=10000:
     timetaken2.update({size: (time.perf_counter_ns()-start)/1000000})
     size += 10
 
+#Average case
+'''
 timetaken = {}
 size = 10
 while size <=1000:
@@ -91,7 +93,7 @@ while size <=1000:
         tmp += ((time.perf_counter_ns()-start)/1000000)
     timetaken.update({size: (tmp/size)})
     size += 10
-'''
+
 
 
 X = [i for i in range(100, 1000, 10)]

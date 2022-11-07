@@ -32,7 +32,7 @@ def BFS(Graph, root):
             if n not in visited:
                 visited.append(n)
                 queue.append(n)
-
+'''
 timetaken1 = {}
 timetaken2 = {}
 size = 10
@@ -45,7 +45,38 @@ while size <=1000:
     BFS(A, 0)
     timetaken2.update({size: (time.perf_counter_ns()-start)/1000000})
     size += 10
+'''
 
+timetaken = {}
+size = 10
+while size <=1000:
+    A = graphgen(size)
+    tmp = 0
+    for i in range(len(A)):
+        start = time.perf_counter_ns()
+        BFS(A,i)
+        tmp += ((time.perf_counter_ns()-start)/1000000)
+    timetaken.update({size: (tmp/size)})
+    print(size)
+    size += 10
+
+
+
+X = [i for i in range(100, 1000, 10)]
+Y = [timetaken[i] for i in X]
+fig, ax = plt.subplots(1,2)
+ax[0].plot(X,Y,'ro')
+ax[1].plot(X,Y,'ro')
+ax[0].set_title("average case")
+ax[0].set_xlabel("Array size n")
+ax[0].set_ylabel("Time [ms]")
+ax[1].set_title("average case")
+ax[1].set_xlabel("Array size n")
+ax[1].set_ylabel("Time [ms]")
+ax[1].set_xscale('log')
+ax[1].set_yscale('log')
+
+''' 
 X = [i for i in range(100, 1000, 10)]
 Y = [timetaken1[i] for i in X]
 Y2 = [timetaken2[i] for i in X]
@@ -70,6 +101,7 @@ ax[1,0].set_xlabel("Array size n")
 ax[1,0].set_ylabel('Time [ms]')
 ax[1,1].set_xlabel("Array size n")
 ax[1,1].set_ylabel('Time [ms]')
+'''
 
 fig.savefig("figure.pdf")
 fig.show()
